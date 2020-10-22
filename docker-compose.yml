@@ -1,0 +1,8 @@
+version: '3.0'
+services:
+   lowprice:
+     image: lowprice:runtime
+     build:
+       context: .
+     ports:
+       - "8080:80"
