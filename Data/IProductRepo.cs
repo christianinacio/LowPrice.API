@@ -7,5 +7,6 @@ namespace LowPrice.API.Data
     {
         IEnumerable<Product> GetProducts();
         Product GetProductById(string id);
+        Product InsertProduct(Product product);
     }
 }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using LowPrice.API.Data;
 using MediatR;
 
-namespace LowPrice.API.Domain.Commands
+namespace LowPrice.API.Application.Commands
 {
     public class TokensCommandHandler : IRequestHandler<TokensCommand, string>
     {

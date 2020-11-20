@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using LowPrice.API.Data;
 using LowPrice.API.Domain.Models;
-using LowPrice.API.Domain.Queries;
+using LowPrice.API.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using LowPrice.API.Application.Commands;
 
 namespace LowPrice.API.API.Controllers
 {
@@ -39,5 +40,10 @@ namespace LowPrice.API.API.Controllers
             return await _mediator.Send(query);
         }
         
+        [HttpPost("/api/products")]
+        public Task<string> InsertProducts([FromBody]CreateProductCommand request)
+        {
+            return _mediator.Send(request);
+        }
     }
 }

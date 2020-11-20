@@ -22,5 +22,12 @@ namespace LowPrice.API.Data
         {
             return _context.Products.ToList();
         }
+
+        public Product InsertProduct(Product product){
+            //TODO: inser product in db
+            return new Product();
+        }
+
+        
     }
 }

@@ -5,7 +5,7 @@ using LowPrice.API.Data;
 using LowPrice.API.Domain.Models;
 using MediatR;
 
-namespace LowPrice.API.Domain.Queries
+namespace LowPrice.API.Application.Queries
 {
     public class GetAllProductsQuery : IRequest<IEnumerable<Product>>
     {

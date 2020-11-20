@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using LowPrice.API.Domain.Commands;
+using LowPrice.API.Application.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

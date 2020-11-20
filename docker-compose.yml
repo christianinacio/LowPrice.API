@@ -1,8 +1,19 @@
 version: '3.0'
+
 services:
-   lowprice:
-     image: lowprice:runtime
-     build:
-       context: .
-     ports:
-       - "8080:80"
+    lowprice:
+      image: lowprice:runtime
+      build:
+        context: .
+      ports:
+        - "8080:80"
+      
+    mysql:
+      image: mysql:8.0.22
+      environment:
+        MYSQL_ROOT_PASSWORD: pass
+        MYSQL_DATABASE: lowpriceDB
+        MYSQL_USER: root
+        MYSQL_PASSWORD: pass
+      volumes: 
+        - ~/docker/mysql-data:/var/lib/mysql

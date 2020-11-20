@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace LowPrice.API.Domain.Commands
+namespace LowPrice.API.Application.Commands
 {
     public class TokensCommand : IRequest<string>
     {
