@@ -7,13 +7,15 @@ services:
         context: .
       ports:
         - "8080:80"
+      volumes:
+        - /home/user/Documents/DB:/app/DB
       
-    mysql:
-      image: mysql:8.0.22
-      environment:
-        MYSQL_ROOT_PASSWORD: pass
-        MYSQL_DATABASE: lowpriceDB
-        MYSQL_USER: root
-        MYSQL_PASSWORD: pass
-      volumes: 
-        - ~/docker/mysql-data:/var/lib/mysql
+    # mysql:
+    #   image: mysql:8.0.22
+    #   environment:
+    #     MYSQL_ROOT_PASSWORD: pass
+    #     MYSQL_DATABASE: lowpriceDB
+    #     MYSQL_USER: root
+    #     MYSQL_PASSWORD: pass
+    #   volumes: 
+    #     - ~/docker/mysql-data:/var/lib/mysql

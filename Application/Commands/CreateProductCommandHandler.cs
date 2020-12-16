@@ -16,8 +16,14 @@ namespace LowPrice.API.Application.Commands
         }
         public Task<string> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var mock = new Product();
-            var prod = _repository.InsertProduct(mock);
+            Product product = new Product{
+                Id = request.Id,
+                Name = request.Name,
+                Type = request.Type,
+                Price = request.Price,
+                Update = request.Update
+            };
+            _repository.InsertProduct(product);
             return Task.FromResult("OK");
         }
     }

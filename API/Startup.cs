@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace LowPrice.API.API
 {
@@ -23,7 +24,15 @@ namespace LowPrice.API.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<DataContext>((options => options.UseSqlite("Data Source=./SqliteDB.db;")));
+            services.AddDbContext<DataContext>((options => options.UseSqlite("Data Source=./DB/SqliteDB.db;")));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Low Price API",
+                    Version = "v1"
+                });
+            });
             services.AddControllers();
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddMediatR(typeof(Startup));
@@ -46,6 +55,12 @@ namespace LowPrice.API.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Low Price API");
             });
         }
     }

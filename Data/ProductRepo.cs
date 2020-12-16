@@ -24,7 +24,7 @@ namespace LowPrice.API.Data
         }
 
         public Product InsertProduct(Product product){
-            //TODO: inser product in db
+            _context.Products.Add(product);
             return new Product();
         }
 
