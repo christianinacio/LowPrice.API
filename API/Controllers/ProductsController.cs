@@ -31,7 +31,7 @@ namespace LowPrice.API.API.Controllers
         }
 
         [HttpGet("/api/products/{id}")]
-        public async Task<Product> GetProducts(string id)
+        public async Task<Product> GetProducts(int id)
         {
             var query = new GetProductQuery
             {

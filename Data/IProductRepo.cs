@@ -6,7 +6,7 @@ namespace LowPrice.API.Data
     public interface IProductRepo
     {
         IEnumerable<Product> GetProducts();
-        Product GetProductById(string id);
+        Product GetProductById(int id);
         Product InsertProduct(Product product);
     }
 }

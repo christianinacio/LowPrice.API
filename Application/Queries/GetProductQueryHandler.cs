@@ -16,10 +16,10 @@ namespace LowPrice.API.Application.Queries
             this._repository = repository;
         }
 
-        public async Task<Product> Handle(GetProductQuery request, CancellationToken cancellationToken)
+        public Task<Product> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
             var product = _repository.GetProductById(request.Id);
-            return product;
+            return Task.FromResult(product);
         }
     }
 }

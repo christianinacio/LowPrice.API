@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LowPrice.API.Domain.Models;
@@ -13,7 +14,7 @@ namespace LowPrice.API.Data
             _context = context;
         }
 
-        public Product GetProductById(string id)
+        public Product GetProductById(int id)
         {
             return _context.Products.FirstOrDefault(p => p.Id == id);
         }
@@ -24,10 +25,9 @@ namespace LowPrice.API.Data
         }
 
         public Product InsertProduct(Product product){
-            _context.Products.Add(product);
-            return new Product();
+            var prod = _context.Products.Add(product).Entity;
+            return prod;
         }
-
         
     }
 }

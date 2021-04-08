@@ -9,6 +9,6 @@ namespace LowPrice.API.Application.Queries
 {
     public class GetProductQuery : IRequest<Product>
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }

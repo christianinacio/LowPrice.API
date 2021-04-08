@@ -24,7 +24,7 @@ namespace LowPrice.API.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<DataContext>((options => options.UseSqlite("Data Source=./DB/SqliteDB.db;")));
+            services.AddDbContext<DataContext>((options => options.UseSqlite("Data Source=./SqliteDB.db;")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
