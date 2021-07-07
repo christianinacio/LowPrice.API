@@ -8,9 +8,9 @@ namespace LowPrice.API.API.Controllers
     public class HomeController
     {
         [HttpGet]
-        public async Task<string> Welcome()
+        public Task<string> Welcome()
         {
-            return "Welcome to LowPrice API";
+            return Task.FromResult("Welcome to LowPrice API");
         }
     }
 }

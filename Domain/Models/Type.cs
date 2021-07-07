@@ -1,7 +1,15 @@
+using System.ComponentModel;
+
 namespace LowPrice.API.Domain.Models
 {
     public enum Type
     {
-        Bebidas = 0, Galletitas = 1, Almacen = 2, Snacks = 3 
+        [Description("Bebida")]
+        Bebidas = 0,
+        [Description("Galletitas")]
+        Galletitas = 1,
+        [Description("Almacen")]
+        Almacen = 2,
+        Snacks = 3 
     }
 }

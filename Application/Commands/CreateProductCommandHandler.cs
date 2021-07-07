@@ -1,8 +1,10 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using LowPrice.API.Data;
 using LowPrice.API.Domain.Models;
 using MediatR;
+using Type = LowPrice.API.Domain.Models.Type;
 
 namespace LowPrice.API.Application.Commands
 {
@@ -19,7 +21,7 @@ namespace LowPrice.API.Application.Commands
             Product product = new Product{
                 Id = request.Id,
                 Name = request.Name,
-                Type = request.Type,
+                Type = Enum.GetName(typeof(Type), request.Type),
                 Price = request.Price,
                 Update = request.Update
             };

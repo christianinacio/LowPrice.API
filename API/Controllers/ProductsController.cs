@@ -45,5 +45,15 @@ namespace LowPrice.API.API.Controllers
         {
             return _mediator.Send(request);
         }
+        [HttpDelete("/api/products/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var command = new DeleteProductCommand
+            {
+                Id = id
+            };
+            var result = await _mediator.Send(command);
+            return result? StatusCode(200) : BadRequest();
+        }
     }
 }

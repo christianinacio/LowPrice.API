@@ -8,5 +8,6 @@ namespace LowPrice.API.Data
         IEnumerable<Product> GetProducts();
         Product GetProductById(int id);
         Product InsertProduct(Product product);
+        bool DeleteProduct(int id);
     }
 }
