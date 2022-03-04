@@ -23,7 +23,7 @@ namespace LowPrice.API.Application.Commands
                 Name = request.Name,
                 Type = Enum.GetName(typeof(Type), request.Type),
                 Price = request.Price,
-                Update = request.Update
+                Update = DateTime.Now
             };
             _repository.InsertProduct(product);
             return Task.FromResult("OK");

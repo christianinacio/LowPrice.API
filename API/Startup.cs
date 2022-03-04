@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using LowPrice.API.Application.Hubs;
 
 namespace LowPrice.API.API
 {
@@ -25,6 +26,10 @@ namespace LowPrice.API.API
         {
             services.AddMvc();
             services.AddDbContext<DataContext>((options => options.UseSqlite("Data Source=./SqliteDB.db;")));
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -55,6 +60,7 @@ namespace LowPrice.API.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<LowPriceHub>("/LowPriceHub");
             });
 
             app.UseSwagger();

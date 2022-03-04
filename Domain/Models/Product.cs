@@ -1,3 +1,5 @@
+using System;
+
 namespace LowPrice.API.Domain.Models
 {
     public class Product
@@ -7,7 +9,7 @@ namespace LowPrice.API.Domain.Models
         public string Brand { get; set; }
         public string Type { get; set; }
         public double Price { get; set; }
-        public string Update{ get; set; }
+        public DateTime Update{ get; set; }
 
     }
 }
