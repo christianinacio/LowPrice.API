@@ -19,9 +19,9 @@ namespace LowPrice.API.Application.Commands
         public Task<string> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             Product product = new Product{
-                Id = request.Id,
                 Name = request.Name,
                 Type = Enum.GetName(typeof(Type), request.Type),
+                Brand = request.Brand,
                 Price = request.Price,
                 Update = DateTime.Now
             };
