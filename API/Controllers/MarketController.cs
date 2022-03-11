@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LowPrice.API.Application.Market.Commands;
 using LowPrice.API.Application.Market.Queries;
 using LowPrice.API.Domain.Models;
 using MediatR;
@@ -26,6 +28,19 @@ namespace LowPrice.API.API.Controllers
                 Id = id
             };
             return await _mediator.Send(query);
+        }
+        //TODO: agregar a la tabla stock la cantidad del nuevo producto
+        [HttpPost("/api/market/{id}/product")]
+        public async Task<Product> AddProductToMarket(int id, [FromBody] AddProductToMarketCommand request)
+        {
+            request.IdMarket = id;
+            return await _mediator.Send(request);
+        }
+        //TODO: sacar cierta cantidad de un producto
+        [HttpPut("/api/market/{id}/product")]
+        public async Task<IEnumerable<Product>> SellProduct(int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
