@@ -14,7 +14,7 @@ namespace LowPrice.API.Data
             
         }
 
-        //public DbSet<User> Users { get; set; }
+        public DbSet<Market> Markets { get; set; }
         public DbSet<Product> Products { get; set; }
     }
 }

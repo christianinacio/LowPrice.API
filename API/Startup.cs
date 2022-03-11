@@ -40,6 +40,7 @@ namespace LowPrice.API.API
             });
             services.AddControllers();
             services.AddScoped<IProductRepo, ProductRepo>();
+            services.AddScoped<IMarketRepo, MarketRepo>();
             services.AddMediatR(typeof(Startup));
             
         }

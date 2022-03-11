@@ -8,6 +8,20 @@ CREATE TABLE "Products" (
 	PRIMARY KEY("Id" AUTOINCREMENT)
 );
 
-INSERT into Products (name,Brand,Type, Price) values ("Coca Cola", "Coca Cola", 1, 100);
-INSERT into Products (name,Brand,Type, Price) values ("Cookies", "Oreon", 2, 80.5);
+CREATE TABLE "Market" (
+	"Id"		INTEGER NOT NULL,
+	"Address"	TEXT NOT NULL,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+
+CREATE TABLE "Stock" (
+	"IdProduct"		INTEGER NOT NULL,
+	"IdMarket"		INTEGER NOT NULL,
+	"Amount"		INTEGER NOT NULL,
+);
+
+	INSERT into Products (name,Brand,Type, Price) values ("Coca Cola", "Coca Cola", 1, 100);
+	INSERT into Products (name,Brand,Type, Price) values ("Cookies", "Oreon", 2, 80.5);
+END;
+/
 

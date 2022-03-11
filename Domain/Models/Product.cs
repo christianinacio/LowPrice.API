@@ -10,6 +10,5 @@ namespace LowPrice.API.Domain.Models
         public string Type { get; set; }
         public double Price { get; set; }
         public DateTime Update{ get; set; }
-
     }
 }

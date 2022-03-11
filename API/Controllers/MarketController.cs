@@ -29,6 +29,11 @@ namespace LowPrice.API.API.Controllers
             };
             return await _mediator.Send(query);
         }
+        [HttpPost("/api/market")]
+        public Task<string> AddMarket([FromBody] AddMarketCommand request)
+        {
+            return _mediator.Send(request);
+        }
         //TODO: agregar a la tabla stock la cantidad del nuevo producto
         [HttpPost("/api/market/{id}/product")]
         public async Task<Product> AddProductToMarket(int id, [FromBody] AddProductToMarketCommand request)
